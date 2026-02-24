@@ -209,7 +209,7 @@ If you use this work or the ASL-Kimpinde dataset, please cite:
 
 ```bibtex
 @software{Kimpinde2026S3DConv1D,
-  author    = {Samuel G. Kimpinde L.},
+  author    = {Kimpinde, Samuel L.},
   title     = {Samuel-KIMPINDE/S3D-Conv1D-for-SLR-for-Microcontrollers: Initial release of S3D-Conv1D-ASL pipeline (v1.0)},
   version   = {v1.0},
   year      = {2026},
