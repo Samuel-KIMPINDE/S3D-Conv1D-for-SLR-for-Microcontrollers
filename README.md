@@ -219,5 +219,3 @@ If you use this work or the ASL-Kimpinde dataset, please cite:
 }
 
 ```
-
-Kimpinde, S. L. (2026). ASL-Kimpinde set: Minimal Dataset for sign Language Recognition (v1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.18754451
