@@ -2,7 +2,7 @@
 
 Real-time, privacy-preserving sign language recognition (SLR) running directly on microcontrollers — no cloud, no network, no compromise on accessibility.
 
-This repository provides a complete, reproducible pipeline for training lightweight spatiotemporal sign language recognition models, quantizing them to INT8, and deploying them on resource-constrained edge devices (targeting the **OpenMV AE3 MCU**). It bridges deep learning research with real-world embedded constraints through methodological insights for TinyML deployment in vision-based tasks.
+This repository provides a complete, reproducible pipeline for training lightweight spatiotemporal sign language recognition models, quantizing them to INT8, and deploying them on resource-constrained edge devices. It bridges deep learning research with real-world embedded constraints through methodological insights for TinyML deployment in vision-based tasks.
 
 ---
 
@@ -89,7 +89,7 @@ Input: (24 frames × 64×64 × 1 channel)
   └─ Dense(num_classes, softmax)            ← classification head
 ```
 
-The spatial backbone extracts per-frame features; Conv1D captures motion patterns across the temporal dimension. The result is a model small enough to quantize to INT8 and deploy on an OpenMV AE3 microcontroller.
+The spatial backbone extracts per-frame features; Conv1D captures motion patterns across the temporal dimension. The result is a model small enough to quantize to INT8 and deploy on a microcontroller.
 
 ---
 
@@ -99,7 +99,7 @@ The trained model is exported in two formats via `export_tflite.py`:
 
 | Format | Purpose | Quantization |
 |---|---|---|
-| `s3d_conv1d_int8_100.tflite` | MCU deployment (OpenMV AE3) | Full INT8 (weights + activations) |
+| `s3d_conv1d_int8_100.tflite` | MCU deployment | Full INT8 (weights + activations) |
 | `s3d_conv1d_float32_100.tflite` | Accuracy baseline comparison | Float32 |
 
 INT8 quantization uses **post-training quantization** with the test split as the representative calibration dataset. Both input and output tensors are quantized to `int8`.
@@ -216,9 +216,3 @@ If you use this work or the ASL-Kimpinde dataset, please cite:
   url       = {https://zenodo.org/records/18754451}
 }
 ```
-
----
-
-## License
-
-This project is released for academic and research use. Please refer to the individual dataset pages for their respective licenses.
