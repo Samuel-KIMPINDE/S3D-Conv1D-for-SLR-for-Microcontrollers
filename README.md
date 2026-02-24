@@ -208,11 +208,16 @@ outputs/
 If you use this work or the ASL-Kimpinde dataset, please cite:
 
 ```bibtex
-@dataset{kimpinde_asl_2025,
+@dataset{Kimpinde2026ASL,
   author    = {Kimpinde, Samuel L.},
-  title     = {ASL-Kimpinde Set 2},
-  year      = {2025},
+  title     = {ASL-Kimpinde set: Minimal Dataset for Sign Language Recognition},
+  year      = {2026},
+  version   = {1.0},
   publisher = {Zenodo},
-  url       = {https://zenodo.org/records/18754451}
+  doi       = {10.5281/zenodo.18754451},
+  url       = {https://doi.org/10.5281/zenodo.18754451}
 }
+
 ```
+
+Kimpinde, S. L. (2026). ASL-Kimpinde set: Minimal Dataset for sign Language Recognition (v1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.18754451
