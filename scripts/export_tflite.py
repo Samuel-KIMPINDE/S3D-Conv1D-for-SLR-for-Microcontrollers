@@ -55,7 +55,7 @@ model = tf.keras.models.load_model(CHECKPOINT_PATH)
 
 
 # ════════════════════════════════════════════════════════════════
-# Export: INT8 (for OpenMV AE3)
+# Export: INT8
 # ════════════════════════════════════════════════════════════════
 print("Converting to INT8 TFLite …")
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
