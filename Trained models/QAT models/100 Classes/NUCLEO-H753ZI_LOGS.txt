@@ -1,0 +1,540 @@
+Generate Project
+Copying previous project files from C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5 to C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\generate\backup
+Calculating memory footprint...
+Memory footprint: {
+  "activations": 323180,
+  "io": [
+    0,
+    0
+  ],
+  "kernel_flash": 42542,
+  "kernel_ram": 2200,
+  "series": "stm32h7",
+  "toolchain": "arm-none-eabi-gcc (GNU Tools for STM32 13.3.rel1.20250523-0900) 13.3.1 20240614",
+  "toolchain_flash": 104,
+  "toolchain_ram": 0,
+  "weights": 892972
+}
+Generating project for board NUCLEO-H753ZI...
+Executing process: C:\Users\kimpi\AppData\Local\Programs\STM32CubeMX\jre\bin\java.exe -jar C:\Users\kimpi\AppData\Local\Programs\STM32CubeMX\STM32CubeMX.exe -q -s
+Executed command: config load "C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\run-5.ioc"
+Executed command: project toolchain "STM32CubeIDE"
+Executed command: set mode RCC HSE-External-Clock-Source
+Executed command: config save
+Executed command: set ip parameters CORTEX_M7 CPU_ICache Enabled
+Executed command: set ip parameters CORTEX_M7 CPU_DCache Enabled
+Executed command: set ip parameters CORTEX_M7 MPU_Control MPU_PRIVILEGED_DEFAULT
+Executed command: project set heapsize 0x800
+Executed command: project set stacksize 0x2000
+Executed command: set gpio parameters PD9 GPIO_PuPd GPIO_PULLUP
+Executed command: set pin PD9 USART3_RX
+Executed command: set pin PD8 USART3_TX
+Executed command: set mode USART3 Asynchronous
+Executed command: config save
+Executed command: set ip parameters USART3 BaudRate 115200
+Executed command: set gpio parameters PD9 GPIO_PuPd GPIO_PULLUP
+Downloading default firmware package for MCU STM32H753ZIT6...
+Installing FW package through STM32CubeMX command line... 
+You will be prompted for license if not accepted yet. Please accept it to continue.
+Executed command: swmgr install stm32cube_H7_1.13.0 ask
+Generate project and exit.
+ If stuck here, please check STM32CubeMX opened dialog or Firmware Package.
+Executed command: config save
+Executed command: project toolchainlocation "."
+Executed command: project generate
+Generating code...
+>>> C:\ST\STEdgeAI\3.0\Utilities\windows\stedgeai.exe generate --model C:\Users\kimpi\Downloads\New experiments\QUANTIZATION EVALUATION\QAT s3dconv1d\wlasl100\experiment1\s3d_conv1d_qat_int8.tflite --batch-size 10 --mode target --optimization balanced --name network --verbosity 1 --c-api st-ai --target stm32h7 --workspace C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_ws --output C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output --memory-pool C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\mempools.json --split-weights
+ST Edge AI Core v3.0.0-20426 123672867
+
+Creating c (debug) info json file C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output\network_c_info.json
+
+ Exec/report summary (generate)
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+ model file         :   C:\Users\kimpi\Downloads\New experiments\QUANTIZATION EVALUATION\QAT s3dconv1d\wlasl100\experiment1\s3d_conv1d_qat_int8.tflite   
+ type               :   tflite                                                                                                                           
+ c_name             :   network                                                                                                                          
+ compression        :   lossless                                                                                                                         
+ options            :   allocate-inputs, allocate-outputs, multi-heaps, split-weights, use-lite-runtime, use-st-ai                                       
+ optimization       :   balanced                                                                                                                         
+ target/series      :   stm32h7                                                                                                                          
+ memory pool        :   C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\mempools.json                                
+ workspace dir      :   C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_ws                                     
+ output dir         :   C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output                                 
+ model_fmt          :   ss/sa per channel                                                                                                                
+ model_name         :   s3d_conv1d_qat_int8                                                                                                              
+ model_hash         :   0x0ed9c67e21097ba89a66091f9b19b2bd                                                                                               
+ params #           :   892,420 items (872.04 KiB)                                                                                                       
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+ input 1/1          :   'serving_default_video_input0', int8(1x24x64x64x1), 96.00 KBytes, QLinear(0.003921569,-128,int8), activations                    
+ output 1/1         :   'nl_17', int8(1x100), 100 Bytes, QLinear(0.003906250,-128,int8), activations                                                     
+ macc               :   97,328,596                                                                                                                       
+ weights (ro)       :   892,972 B (872.04 KiB) (8 segments) / -2,676,708(-75.0%) vs float model                                                          
+ activations (rw)   :   323,180 B (315.61 KiB) (2 segments) *                                                                                            
+ ram (total)        :   323,180 B (315.61 KiB) = 323,180 + 0 + 0                                                                                         
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+ (*) 'input'/'output' buffers are allocated in the activations buffer
+  Memory-pools summary (activations/ domain)
+  ------------------------- -------- -------------------------- --------- 
+  name                      id       used                       buffer#   
+  ------------------------- -------- -------------------------- --------- 
+  POOL_0_DTCMRAM            0        7.66 KiB (6.2%)            6         
+  POOL_1_RAM_D1             1        307.95 KiB (75.4%)         9         
+  POOL_2_RAM_D2             unused   -                          0         
+  POOL_3_RAM_D3             unused   -                          0         
+  conv2d_4_weights_array    4        108 B (10800.0%)           1         
+  conv2d_4_bias_array       5        48 B (4800.0%)             1         
+  conv2d_6_weights_array    6        2.53 KiB (259200.0%)       1         
+  conv2d_6_bias_array       7        96 B (9600.0%)             1         
+  conv2d_13_weights_array   8        864.00 KiB (88473600.0%)   1         
+  conv2d_13_bias_array      9        192 B (19200.0%)           1         
+  gemm_16_weights_array     10       4.69 KiB (480000.0%)       1         
+  gemm_16_bias_array        11       400 B (40000.0%)           1         
+  ------------------------- -------- -------------------------- --------- 
+  Warning: ['POOL_2_RAM_D2', 'POOL_3_RAM_D3'] memory pool s not used
+
+Computing AI RT data/code size (target=stm32h7)..
+
+ Requested memory size by section - "stm32h7" target
+
+ ------------------------------ -------- --------- ------- ---------
+
+ module                             text    rodata    data       bss
+
+ ------------------------------ -------- --------- ------- ---------
+
+ NetworkRuntime1100_CM7_GCC.a     38,264         0       0         0
+
+ network.o                         1,622       426   2,128        72
+
+ lib (toolchain)*                    104         0       0         0
+
+ ------------------------------ -------- --------- ------- ---------
+
+ RT total**                       39,990       426   2,128        72
+
+ ------------------------------ -------- --------- ------- ---------
+
+ weights                               0   892,976       0         0
+
+ activations                           0         0       0   323,180
+
+ states                                0         0       0         0
+
+ io                                    0         0       0         0
+
+ ------------------------------ -------- --------- ------- ---------
+
+ TOTAL                            39,990   893,402   2,128   323,252
+
+ ------------------------------ -------- --------- ------- ---------
+
+ *  toolchain objects (libm/libgcc*)
+
+ ** RT AI runtime objects (kernels+infrastructure)
+
+  Summary - "stm32h7" target
+
+  -------------------------------------------------
+
+               FLASH (ro)     %*   RAM (rw)      %
+
+  -------------------------------------------------
+
+  RT total         42,544   4.5%      2,200   0.7%
+
+  -------------------------------------------------
+
+  TOTAL           935,520           325,380
+
+  -------------------------------------------------
+
+  *  rt/total
+
+ Generated files (5)
+
+ --------------------------------------------------------------------------------------------------------------------
+
+ C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output\network_data.h
+
+ C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output\network_data.c
+
+ C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output\network.h
+
+ C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output\network.c
+
+ C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output\network_details.h
+
+Creating txt report file C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output\network_generate_report.txt
+
+elapsed time (GENERATE): 32.627s
+
+Compiling template bsp_ai.h.hbs...
+Compiling template app_config.h.hbs...
+Compiling template app_x-cube-ai.h.hbs...
+Compiling template app_x-cube-ai.c.hbs...
+Removing USART Init from main.c
+Removing static from USART Init in main.c
+Adding include line #include "app_x-cube-ai.h" to main.c
+Adding init function call STM32CubeAI_Studio_AI_Init(); to main.c
+Adding process function call STM32CubeAI_Studio_AI_Process(); to main.c
+Generate project done
+Create.
+
+Opening 'run-5'.
+
+14:22:00 **** Build of configuration Release for project run-5 ****
+
+make -j2 all 
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Validation/Src/aiPbIO.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Validation/Src/aiPbIO.d" -MT"Middlewares/ST/AI/Validation/Src/aiPbIO.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Validation/Src/aiPbIO.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Validation/Src/aiPbMemRWServices.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Validation/Src/aiPbMemRWServices.d" -MT"Middlewares/ST/AI/Validation/Src/aiPbMemRWServices.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Validation/Src/aiPbMemRWServices.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Validation/Src/aiPbMgr.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Validation/Src/aiPbMgr.d" -MT"Middlewares/ST/AI/Validation/Src/aiPbMgr.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Validation/Src/aiPbMgr.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Validation/Src/aiValidation_ST_AI.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Validation/Src/aiValidation_ST_AI.d" -MT"Middlewares/ST/AI/Validation/Src/aiValidation_ST_AI.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Validation/Src/aiValidation_ST_AI.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Validation/Src/pb_common.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Validation/Src/pb_common.d" -MT"Middlewares/ST/AI/Validation/Src/pb_common.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Validation/Src/pb_common.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Validation/Src/pb_decode.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Validation/Src/pb_decode.d" -MT"Middlewares/ST/AI/Validation/Src/pb_decode.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Validation/Src/pb_decode.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Validation/Src/pb_encode.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Validation/Src/pb_encode.d" -MT"Middlewares/ST/AI/Validation/Src/pb_encode.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Validation/Src/pb_encode.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Validation/Src/stm32msg.pb.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Validation/Src/stm32msg.pb.d" -MT"Middlewares/ST/AI/Validation/Src/stm32msg.pb.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Validation/Src/stm32msg.pb.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Misc/Src/aiTestHelper_ST_AI.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Misc/Src/aiTestHelper_ST_AI.d" -MT"Middlewares/ST/AI/Misc/Src/aiTestHelper_ST_AI.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Misc/Src/aiTestHelper_ST_AI.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Misc/Src/aiTestUtility.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Misc/Src/aiTestUtility.d" -MT"Middlewares/ST/AI/Misc/Src/aiTestUtility.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Misc/Src/aiTestUtility.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Misc/Src/ai_device_adaptor.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Misc/Src/ai_device_adaptor.d" -MT"Middlewares/ST/AI/Misc/Src/ai_device_adaptor.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Misc/Src/ai_device_adaptor.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Misc/Src/lc_print.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Misc/Src/lc_print.d" -MT"Middlewares/ST/AI/Misc/Src/lc_print.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Misc/Src/lc_print.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Middlewares/ST/AI/Misc/Src/syscalls.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/AI/Misc/Src/syscalls.d" -MT"Middlewares/ST/AI/Misc/Src/syscalls.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/AI/Misc/Src/syscalls.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma_ex.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_exti.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_exti.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_exti.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_flash.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_flash.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_flash.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_flash_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_flash_ex.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_hsem.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_hsem.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_hsem.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.d" -MT"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Core/Src/system_stm32h7xx.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/CMSIS/system_stm32h7xx.d" -MT"Drivers/CMSIS/system_stm32h7xx.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Drivers/CMSIS/system_stm32h7xx.o"
+
+arm-none-eabi-gcc -mcpu=cortex-m7 -c -x assembler-with-cpp -MMD -MP -MF"Application/User/Startup/startup_stm32h753zitx.d" -MT"Application/User/Startup/startup_stm32h753zitx.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Application/User/Startup/startup_stm32h753zitx.o" "../Application/User/Startup/startup_stm32h753zitx.s"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Application/User/Core/main.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/stm32h7xx_hal_msp.d" -MT"Application/User/Core/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Application/User/Core/stm32h7xx_hal_msp.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/Core/Src/stm32h7xx_it.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/stm32h7xx_it.d" -MT"Application/User/Core/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Application/User/Core/stm32h7xx_it.o"
+
+arm-none-eabi-gcc "../Application/User/Core/syscalls.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/syscalls.d" -MT"Application/User/Core/syscalls.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Application/User/Core/syscalls.o"
+
+arm-none-eabi-gcc "../Application/User/Core/sysmem.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/sysmem.d" -MT"Application/User/Core/sysmem.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "Application/User/Core/sysmem.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/AI/App/app_x-cube-ai.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"AI/App/app_x-cube-ai.d" -MT"AI/App/app_x-cube-ai.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "AI/App/app_x-cube-ai.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/AI/App/network.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"AI/App/network.d" -MT"AI/App/network.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "AI/App/network.o"
+
+arm-none-eabi-gcc "C:/Users/kimpi/.stm32cubeaistudio/workspace/S3DConv1D_STM32Deploy/.ai/run/run-5/AI/App/network_data.c" -mcpu=cortex-m7 -std=gnu11 -DUSE_PWR_LDO_SUPPLY -DUSE_HAL_DRIVER -DSTM32H753xx -DHAVE_NETWORK_INFO -c -I../../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -I../../Middlewares/ST/AI/Inc -I../../Middlewares/ST/AI/Misc/Inc -I../../Middlewares/ST/AI/Validation/Inc -I../../Middlewares/ST/AI/Misc/Src -I../../Middlewares/ST/AI/Validation/Src -I../../AI/App -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"AI/App/network_data.d" -MT"AI/App/network_data.o" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "AI/App/network_data.o"
+
+arm-none-eabi-gcc -o "run-5.elf" @"objects.list"  -l:NetworkRuntime1100_CM7_GCC.a -mcpu=cortex-m7 -T"C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\STM32CubeIDE\STM32H753ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="run-5.map" -Wl,--gc-sections -static -L../../Middlewares/ST/AI/Lib/NetworkRuntime1100_CM7_GCC.a --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+
+Finished building target: run-5.elf
+
+arm-none-eabi-size  run-5.elf 
+arm-none-eabi-objdump -h -S run-5.elf  > "run-5.list"
+
+   text	   data	    bss	    dec	    hex	filename
+ 976144	   2884	 335132	1314160	 140d70	run-5.elf
+
+Finished building: default.size.stdout
+
+Finished building: run-5.list
+
+
+14:23:02 Build Finished. 0 errors, 0 warnings. (took 1m:2s.397ms)
+
+
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.21.0                  
+
+      -------------------------------------------------------------------
+
+
+ST-LINK SN  : 0052003C3235511937333439
+
+ST-LINK FW  : V3J5M2
+
+Board       : NUCLEO-H753ZI 
+
+Voltage     : 3.26V
+
+SWD freq    : 8000 KHz
+
+Connect mode: Under Reset
+
+Reset mode  : Hardware reset
+
+Device ID   : 0x450
+
+Revision ID : Rev V
+
+Device name : STM32H7xx
+
+Flash size  : 2 MBytes
+
+Device type : MCU
+
+Device CPU  : Cortex-M7
+
+BL Version  : 0x92
+
+Opening and parsing file: run-5.elf
+
+Memory Programming ...
+
+  File          : run-5.elf
+
+  Size          : 956.09 KB 
+
+  Address       : 0x08000000
+
+Erasing memory corresponding to segment 0:
+
+Erasing internal memory sector 0
+
+Erasing memory corresponding to segment 1:
+
+Erasing internal memory sectors [0 7]
+
+Download in Progress:
+
+
+
+File download complete
+Time elapsed during download operation: 00:00:12.088
+
+
+RUNNING Program ... 
+
+  Address:      : 0x8000000
+
+Application is running, Please Hold on...
+Start operation achieved successfully
+
+Flashing completed
+Device is ready on port COM4
+>>> C:\ST\STEdgeAI\3.0\Utilities\windows\stedgeai.exe validate --model C:\Users\kimpi\Downloads\New experiments\QUANTIZATION EVALUATION\QAT s3dconv1d\wlasl100\experiment1\s3d_conv1d_qat_int8.tflite --batch-size 10 --mode target --optimization balanced --name network --verbosity 1 --c-api st-ai --target stm32h7 --workspace C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_ws --output C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output --memory-pool C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\mempools.json --desc serial:COM4:115200 --save-csv
+ST Edge AI Core v3.0.0-20426 123672867
+
+Setting validation data...
+
+ generating random data, size=10, seed=42, range=(0, 1)
+
+   I[1]: (10, 24, 64, 64, 1)/float32, min/max=[0.000001, 0.999998], mean/std=[0.500263, 0.288580]
+
+    c/I[1] conversion [Q(0.00392157,-128)]-> (10, 24, 64, 64, 1)/int8, min/max=[-128, 127], mean/std=[-0.432848, 73.589198]
+
+    m/I[1] conversion [Q(0.00392157,-128)]-> (10, 24, 64, 64, 1)/int8, min/max=[-128, 127], mean/std=[-0.432848, 73.589198]
+ no output/reference samples are provided
+
+Creating c (debug) info json file C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output\network_c_info_valid.json
+
+ Exec/report summary (validate)
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+ model file         :   C:\Users\kimpi\Downloads\New experiments\QUANTIZATION EVALUATION\QAT s3dconv1d\wlasl100\experiment1\s3d_conv1d_qat_int8.tflite   
+ type               :   tflite                                                                                                                           
+ c_name             :   network                                                                                                                          
+ compression        :   lossless                                                                                                                         
+ options            :   allocate-inputs, allocate-outputs, multi-heaps, use-lite-runtime, use-st-ai                                                      
+ optimization       :   balanced                                                                                                                         
+ target/series      :   stm32h7                                                                                                                          
+ memory pool        :   C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\mempools.json                                
+ workspace dir      :   C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_ws                                     
+ output dir         :   C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output                                 
+ model_fmt          :   ss/sa per channel                                                                                                                
+ model_name         :   s3d_conv1d_qat_int8                                                                                                              
+ model_hash         :   0x0ed9c67e21097ba89a66091f9b19b2bd                                                                                               
+ params #           :   892,420 items (872.04 KiB)                                                                                                       
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+ input 1/1          :   'serving_default_video_input0', int8(1x24x64x64x1), 96.00 KBytes, QLinear(0.003921569,-128,int8), activations                    
+ output 1/1         :   'nl_17', int8(1x100), 100 Bytes, QLinear(0.003906250,-128,int8), activations                                                     
+ macc               :   97,328,596                                                                                                                       
+ weights (ro)       :   892,972 B (872.04 KiB) (1 segment) / -2,676,708(-75.0%) vs float model                                                           
+ activations (rw)   :   323,180 B (315.61 KiB) (2 segments) *                                                                                            
+ ram (total)        :   323,180 B (315.61 KiB) = 323,180 + 0 + 0                                                                                         
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+ (*) 'input'/'output' buffers are allocated in the activations buffer
+  Memory-pools summary (activations/ domain)
+  ---------------- -------- -------------------------- --------- 
+  name             id       used                       buffer#   
+  ---------------- -------- -------------------------- --------- 
+  POOL_0_DTCMRAM   0        7.66 KiB (6.2%)            6         
+  POOL_1_RAM_D1    1        307.95 KiB (75.4%)         9         
+  POOL_2_RAM_D2    unused   -                          0         
+  POOL_3_RAM_D3    unused   -                          0         
+  weights_array    4        872.04 KiB (89297200.0%)   8         
+  ---------------- -------- -------------------------- --------- 
+  Warning: ['POOL_2_RAM_D2', 'POOL_3_RAM_D3'] memory pool s not used
+
+Running the TFlite model...
+
+INFO: 
+Created TensorFlow Lite XNNPACK delegate for CPU.
+Running the ST.AI c-model (AI RUNNER)...(name=network, mode=TARGET)
+
+ Proto-buffer driver v2.1 (msg v3.2) (Serial driver v1.0 - COM4:115200) ['network']
+
+  Summary 'network' - ['network']
+  --------------------------------------------------------------------------------------------------------
+  I[1/1] 'input_1'    :   int8[1,24,64,64,1], 98304 Bytes, QLinear(0.003921569,-128,int8), activations
+  O[1/1] 'output_1'   :   int8[1,100], 100 Bytes, QLinear(0.003906250,-128,int8), activations
+  n_nodes             :   7
+  activations         :   323180 [7844, 315336] (2 segments)
+
+  weights             :   892972 (8 segments)
+  macc                :   97328596
+  hash                :   0x0ed9c67e21097ba89a66091f9b19b2bd
+  compile_datetime    :   Mar 31 2026 14:22:54
+  --------------------------------------------------------------------------------------------------------
+  protocol            :   Proto-buffer driver v2.1 (msg v3.2) (Serial driver v1.0 - COM4:115200)
+  tools               :   ST.AI (st-ai api) v3.0.0
+  runtime lib         :   v11.0.0-de8fec9b compiled with GCC 13.3.1 (GCC)
+  capabilities        :   IO_ONLY, PER_LAYER, PER_LAYER_WITH_DATA
+  device.desc         :   stm32 family - 0x450 - STM32H743/53/50xx and STM32H745/55/47/57xx @480/240MHz
+  device.attrs        :   fpu,art_lat=4,core_icache,core_dcache
+  --------------------------------------------------------------------------------------------------------
+
+  ST.AI Profiling results v2.0 - "network"
+  ----------------------------------------------------------------------------------
+
+  nb sample(s)                   :   10
+  duration                       :   353.133 ms by sample (353.126/353.139/0.004)
+  macc                           :   97328596
+  cycles/MACC                    :   1.74
+  CPU cycles                     :   [169,503,616]
+  network initialize time (ms)   :   0.002
+  ----------------------------------------------------------------------------------
+
+   Inference time per node
+   ---------------------------------------------------------------------------------------------------------------------
+   c_id    m_id   type                                         dur (ms)       %    cumul  CPU cycles        name
+   ---------------------------------------------------------------------------------------------------------------------
+   0       5      Conv2dPool (0x109) - Conv2D                   130.711   37.0%    37.0%  [  62,741,239 ]   ai_node_0
+   1       6      Pad (0x116) - Pad                               0.684    0.2%    37.2%  [     328,297 ]   ai_node_1
+   2       7      Conv2dPool (0x109) - Conv2D                   136.264   38.6%    75.8%  [  65,406,952 ]   ai_node_2
+   3       13     Conv2D (0x103) - Conv2D                        85.418   24.2%   100.0%  [  41,000,435 ]   ai_node_3
+   4       15     Pool (0x10b) - Pool                             0.028    0.0%   100.0%  [      13,545 ]   ai_node_4
+   5       16     Dense (0x104) - Dense                           0.018    0.0%   100.0%  [       8,663 ]   ai_node_5
+   6       17     Softmax (0x10c) - Nonlinearity (softmax)        0.009    0.0%   100.0%  [       4,485 ]   ai_node_6
+   ---------------------------------------------------------------------------------------------------------------------
+   total                                                        353.133                   [ 169,503,616 ]
+   ---------------------------------------------------------------------------------------------------------------------
+   Statistic per tensor
+   ------------------------------------------------------------------------------------
+
+   tensor   #    type[shape]:size            min   max       mean      std  name
+
+   ------------------------------------------------------------------------------------
+
+   I.0      10   i8[1,24,64,64,1]:98304     -128   127     -0.433   73.589  input_1
+
+   O.0      10   i8[1,100]:100              -128   127   -125.449   25.362  output_1
+
+   ------------------------------------------------------------------------------------
+
+Saving validation data...
+
+ output directory: C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output
+
+ creating C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output\network_val_io.npz
+
+ m_outputs_1: (10, 100)/int8, min/max=[-128, 127], mean/std=[-125.449000, 25.362125], nl_17
+
+ c_outputs_1: (10, 1, 1, 100)/int8, min/max=[-128, 127], mean/std=[-125.449000, 25.362125], scale=0.003906250 zp=-128, nl_17
+
+Computing the metrics...
+
+ Cross accuracy report #1 (reference vs C-model)
+
+ ----------------------------------------------------------------------------------------------------
+
+ notes: - r/int8 data are dequantized with s=0.00390625 zp=-128
+
+        - p/int8 data are dequantized with s=0.00390625 zp=-128
+
+        - the output of the reference model is used as ground truth/reference value
+
+        - 10 samples (100 items per sample)
+
+  acc=100.00% rmse=0.000000000 mae=0.000000000 l2r=0.000000000 mean=0.000000 std=0.000000 snr=inf nse=1.000000 cos=1.000000
+
+ Evaluation report (summary)
+
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Output       acc       rmse          mae           l2r           mean       std        snr   nse        cos        tensor
+
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ X-cross #1   100.00%   0.000000000   0.000000000   0.000000000   0.000000   0.000000   inf   1.000000   1.000000   'nl_17', 10 x int8(1x100), m_id=[17]
+
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  acc  : Accuracy (class, axis=-1)
+
+  rmse : Root Mean Squared Error
+
+  mae  : Mean Absolute Error
+
+  l2r  : L2 relative error
+
+  mean : Mean error
+
+  std  : Standard deviation error
+
+  snr  : Signal-to-Noise Ratio (SNR), bigger is better
+
+  nse  : Nash-Sutcliffe efficiency criteria, bigger is better, best=1, range=(-inf, 1]
+
+  cos  : COsine Similarity, bigger is better, best=1, range=(0, 1]
+
+Creating txt report file C:\Users\kimpi\.stm32cubeaistudio\workspace\S3DConv1D_STM32Deploy\.ai\run\run-5\.ai\st_ai_output\network_validate_report.txt
+
+elapsed time (VALIDATE): 151.003s
+
