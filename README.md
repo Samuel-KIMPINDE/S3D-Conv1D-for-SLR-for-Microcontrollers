@@ -69,6 +69,20 @@ If you use this work or the ASL-Kimpinde dataset, please cite:
 
 ```bibtex
 
+@Article{a19040248,
+AUTHOR = {Kimpinde, Samuel Longwani and Olukanmi, Peter O.},
+TITLE = {Efficient Word-Level Sign Language Recognition Using Quantized Spatiotemporal Deep Learning for Low-Power Microcontrollers},
+JOURNAL = {Algorithms},
+VOLUME = {19},
+YEAR = {2026},
+NUMBER = {4},
+ARTICLE-NUMBER = {248},
+URL = {https://www.mdpi.com/1999-4893/19/4/248},
+ISSN = {1999-4893},
+DOI = {10.3390/a19040248}
+}
+
+
 @software{S3DConv1D,
   author    = {Kimpinde, Samuel L. and Olukanmi, Peter O.},
   title     = {Samuel-KIMPINDE/S3D-Conv1D-for-SLR-for-Microcontrollers: Initial release of S3D-Conv1D-ASL pipeline (v1.0)},
