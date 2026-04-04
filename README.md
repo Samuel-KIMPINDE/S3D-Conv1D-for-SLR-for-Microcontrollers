@@ -2,6 +2,10 @@
 
 Real-time, privacy-preserving sign language recognition (SLR) running directly on microcontrollers — no cloud, no network, no compromise on accessibility.
 
+![Alt text]("C:\Users\kimpi\Downloads\Real-time sign language recognition system.png")
+
+
+
 This repository provides a reproducible pipeline for training S3D-Conv1D, a lightweight spatiotemporal sign language recognition model, quantizing it to INT8, and profiling it on resource-constrained edge device (NUCLEO-H753ZI board). It bridges deep learning research with real-world embedded constraints through methodological insights for TinyML deployment in vision-based tasks.
 
 ---
