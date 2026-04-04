@@ -1,7 +1,5 @@
 # Efficient Word-Level Sign Language Recognition Using Quantized Deep Learning for MCU Deployment
 
-Real-time, privacy-preserving sign language recognition (SLR) running directly on microcontrollers — no cloud, no network, no compromise on accessibility.
-
 ![Graphical Abstract](./Trained%20models/graphical%20abstract%20image.png)
 
 
