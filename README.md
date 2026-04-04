@@ -38,15 +38,20 @@ A lightweight spatiotemporal architecture designed for MCU deployment:
 ```
 Input: (24 frames × 64×64 × 1 channel)
   │
-  ├─ TimeDistributed Conv2D(12) + MaxPool   ← per-frame spatial features
-  ├─ TimeDistributed Conv2D(24) + MaxPool
-  ├─ TimeDistributed Flatten
+  ├─ Spatial Encoder (per-frame)
+  │    ├─ Conv2D(12, 3×3, ReLU) + MaxPool(2×2)
+  │    ├─ Conv2D(24, 3×3, ReLU) + MaxPool(2×2)
+  │    └─ Flatten
   │
-  ├─ Conv1D(48)                             ← temporal reasoning across frames
-  ├─ GlobalAveragePooling1D
+  ├─ Temporal Encoder
+  │    ├─ Sequence S
+  │    ├─ Conv1D(48, k, ReLU) 
+  │    └─ GlobalAveragePooling1D
   │
-  └─ Dense(num_classes, softmax)            ← classification head
+  └─ Classifier
+       └─ Dense(num_classes, Softmax)
 ```
+
 
 The spatial backbone extracts per-frame features; Conv1D captures motion patterns across the temporal dimension. The result is a model small enough to quantize to INT8 and deploy on a microcontroller.
 
@@ -54,7 +59,7 @@ The spatial backbone extracts per-frame features; Conv1D captures motion pattern
 
 ## Quantization
 
-INT8 quantization uses **quantization aware-training** vs **post-training quantization** with the test split as the representative calibration dataset.
+INT8 quantization uses **quantization aware-training** vs **post-training quantization**.
 
 ---
 
