@@ -2,54 +2,13 @@
 
 Real-time, privacy-preserving sign language recognition (SLR) running directly on microcontrollers — no cloud, no network, no compromise on accessibility.
 
-This repository provides a complete, reproducible pipeline for training lightweight spatiotemporal sign language recognition models, quantizing them to INT8, and deploying them on resource-constrained edge devices. It bridges deep learning research with real-world embedded constraints through methodological insights for TinyML deployment in vision-based tasks.
+This repository provides a reproducible pipeline for training S3D-Conv1D, a lightweight spatiotemporal sign language recognition model, quantizing it to INT8, and profiling it on resource-constrained edge device (NUCLEO-H753ZI board). It bridges deep learning research with real-world embedded constraints through methodological insights for TinyML deployment in vision-based tasks.
 
 ---
 
 ## Why This Matters
 
 SLR systems running on edge devices can deliver accessibility anywhere — affordable, portable, and private. On-device inference brings scalability, energy efficiency, and data sovereignty to wearable, mobile, and smart environments. This work advances both assistive technology and the broader TinyML field by demonstrating that quantized spatiotemporal models can run viably on microcontrollers.
-
----
-
-## Project Structure
-
-```
-├── config.py               # Central configuration: all paths, hyperparameters, environments
-├── utils.py                # Shared utilities: data loading, augmentation, visualization
-├── train_s3dconv1d.py      # End-to-end training pipeline
-├── export_tflite.py        # TFLite export (INT8 & Float32) + INT8 evaluation
-└── README.md
-```
-
----
-
-## Pipeline Overview
-
-```
-Raw Videos (WLASL + ASL-Kimpinde)
-        │
-        ▼
-  Validate & Balance          ← utils.py
-        │
-        ▼
-  Frame Extraction            ← utils.py
-  + FPS Simulation
-  + Augmentation
-        │
-        ▼
-  Train S3DConv1D             ← train_s3dconv1d.py
-        │
-        ▼
-  Evaluate + Report           ← train_s3dconv1d.py
-        │
-        ▼
-  Export to TFLite            ← export_tflite.py
-  (INT8 for MCU / Float32)
-        │
-        ▼
-  INT8 Inference Evaluation   ← export_tflite.py
-```
 
 ---
 
@@ -63,7 +22,7 @@ Raw Videos (WLASL + ASL-Kimpinde)
 
 ### ASL-Kimpinde Set
 
-A custom dataset collected by Samuel L. Kimpinde under controlled conditions to augment underrepresented WLASL classes and to enable domain-aware calibration for TinyML quantization.
+A custom dataset, collected by Samuel L. Kimpinde under controlled conditions, was collected with two roles: augmenting underrepresented WLASL classes and providing signer-specific calibration data for quantization. This illustrates a broader principle: signer variation is a genuine source of distribution shift, and domain-aware calibration is a necessary step when moving from benchmark evaluation to individual and real-world use on microcontrollers.
 
 - **250 video samples** across **50 isolated ASL word classes** (5 samples/class)
 - Recorded on a Lenovo V15 G2 webcam at **1280×720, 30 FPS**
@@ -95,14 +54,7 @@ The spatial backbone extracts per-frame features; Conv1D captures motion pattern
 
 ## Quantization
 
-The trained model is exported in two formats via `export_tflite.py`:
-
-| Format | Purpose | Quantization |
-|---|---|---|
-| `s3d_conv1d_int8_100.tflite` | MCU deployment | Full INT8 (weights + activations) |
-| `s3d_conv1d_float32_100.tflite` | Accuracy baseline comparison | Float32 |
-
-INT8 quantization uses **post-training quantization** with the test split as the representative calibration dataset. Both input and output tensors are quantized to `int8`.
+INT8 quantization uses **quantization aware-training** vs **post-training quantization** with the test split as the representative calibration dataset.
 
 ---
 
@@ -146,18 +98,6 @@ This will:
 - Train the S3DConv1D model for up to 100 epochs with early stopping
 - Save the best checkpoint, generate training plots, and produce a full classification report
 
-### 4. Export to TFLite
-
-```bash
-python export_tflite.py
-```
-
-This will:
-- Load the best Keras checkpoint
-- Convert to INT8 TFLite (calibrated) and Float32 TFLite
-- Run INT8 inference on the test split and print accuracy, softmax sanity stats, classification report, and confusion matrix
-
----
 
 ## Key Hyperparameters
 
@@ -172,34 +112,6 @@ All values live in `config.py` — edit there, not in the individual scripts.
 | `EPOCHS` | 100 | Max training epochs |
 | `MIN_VIDEOS_PER_CLASS` | 18 | Minimum videos required to include a class |
 | `MAX_VIDEOS_PER_CLASS` | 25 | Cap per class for dataset balance |
-
----
-
-## Outputs
-
-After a full run, the following files are produced:
-
-```
-frames_rgb/
-├── <label>/                        # Per-class .npy frame arrays
-├── X_train.npy / y_train.npy
-├── X_val.npy   / y_val.npy
-├── X_test.npy  / y_test.npy
-├── label_to_idx.json
-├── s3d_conv1d_int8_100.tflite
-└── s3d_conv1d_float32_100.tflite
-
-outputs/
-├── best_S3D_conv1d.h5
-├── s3dConv1d_classification_report.csv
-├── s3dConv1d_confusion_matrix.npy
-├── s3dConv1d_confusion_matrix.png
-├── s3dConv1d_training_plot.png
-├── train_distribution.png
-├── val_distribution.png
-├── test_distribution.png
-└── combined_distribution.png
-```
 
 ---
 
