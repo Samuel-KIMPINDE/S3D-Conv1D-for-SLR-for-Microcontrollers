@@ -83,17 +83,6 @@ DOI = {10.3390/a19040248}
 }
 
 
-@software{S3DConv1D,
-  author    = {Kimpinde, Samuel L. and Olukanmi, Peter O.},
-  title     = {Samuel-KIMPINDE/S3D-Conv1D-for-SLR-for-Microcontrollers: Initial release of S3D-Conv1D-ASL pipeline (v1.0)},
-  version   = {v1.0},
-  year      = {2026},
-  publisher = {Zenodo},
-  doi       = {10.5281/zenodo.18758927},
-  url       = {https://doi.org/10.5281/zenodo.18758927}
-}
-
-
 @dataset{Kimpinde2026ASL,
   author    = {Kimpinde, Samuel L.},
   title     = {ASL-Kimpinde set: Minimal Dataset for Sign Language Recognition},
