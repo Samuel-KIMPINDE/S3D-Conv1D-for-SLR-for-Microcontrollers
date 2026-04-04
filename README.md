@@ -2,7 +2,7 @@
 
 Real-time, privacy-preserving sign language recognition (SLR) running directly on microcontrollers — no cloud, no network, no compromise on accessibility.
 
-![Alt text]("C:\Users\kimpi\Downloads\Real-time sign language recognition system.png")
+![Graphical Abstract](./Trained%20models/graphical%20abstract%20image.png)
 
 
 
